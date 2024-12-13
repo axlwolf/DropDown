@@ -8,8 +8,88 @@
   --white: #ffffff;
   --grey: #f0f0f0;
   --light-grey: #dcdcdc;
-  --blue: #C6E7FF;
-  --beige: #FFDDAE;
+  --blue: #c6e7ff;
+  --beige: #ffddae;
 }
 
+.dropdown-container {
+  position: relative;
+  width: 50%;
+  max-width: 480px;
+  margin: 0 auto;
 
+  .dropdown-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--dark-blue);
+    background-color: var(--white);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out; /* Transición solo para el borde */
+
+    &:focus {
+      border-color: var(--dark-blue);
+    }
+  }
+
+  .fas:not(.fa-check) {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid var(--light-grey);
+    border-top: none; /* Elimina el borde superior para que no se vea doble */
+    border-radius: 0 0 5px 5px; /* Bordes redondeados solo abajo */
+    z-index: 1;
+    overflow: hidden; /* Importante para la animación de altura */
+    max-height: 0; /* Inicialmente oculto */
+    opacity: 0;
+    transition: max-heigh 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Transiciones para altura y opacidad */
+    margin-top: 0.5rem;
+    border-radius: 1em;
+
+    &.show {
+      max-height: 200px; /* Altura máxima visible. Ajusta según necesites */
+      opacity: 1;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      border-bottom: 1px solid var(--light-grey);
+
+      transition: background-color 0.3s ease-in-out; /* Transición solo para el fondo */
+
+      &:hover {
+        background-color: var(--light-grey);
+      }
+
+      .fa-check {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        right: 10px;
+      }
+    }
+  }
+}
+
+.icon-left {
+  margin-right: 5px;
+}
+.hidden {
+  display: none;
+}
