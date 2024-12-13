@@ -9,6 +9,7 @@ export const CustomDropdown = (() => {
   const $dropdownItems = document.querySelectorAll(".dropdown-item");
   const $chevron = $dropdownContainer.querySelector(".fas"); // Assuming single chevron element
 
+  let selectedOption; // Stores the currently selected item
   let dropdownInputValue = "Select an Item";
 
   const init = () => {
